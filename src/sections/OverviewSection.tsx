@@ -1,92 +1,128 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { SectionLayout } from '../core/layout/SectionLayout';
-import { Stat } from '../types';
-import { BOLD_HEADING, FADE_IN, SLIDE_UP } from '../core/animations/variants';
+import { FILMIC_EASE, LUXURY_EASE, MOTION_TIMING, staggerDelay } from '../core/animations/presets';
+import { SECTION_MEDIA } from '../content/section-media';
 
 export const OverviewSection: React.FC = () => {
-  const stats: Stat[] = [
-    { value: '3M+', label: 'Square Feet', detail: 'Gross Leasable Area' },
-    { value: '40M+', label: 'Annual Visitors', detail: 'Projected Regional Draw' },
-    { value: '20M', label: 'Primary Catchment', detail: 'High Net-Worth Population' },
-    { value: '30%', label: 'Tourist Composition', detail: 'International & Domestic' }
+  const scaleMarkers = [
+    { value: '12M+', label: 'Square Feet', detail: 'Total Built-up Area' },
+    { value: '100M+', label: 'Annual Visitors', detail: 'World\'s Most Visited Site' },
+    { value: '1,200+', label: 'Retail Stores', detail: 'Global Flagship Dominance' },
+    { value: '200+', label: 'F&B Outlets', detail: 'Culinary Diversity' },
   ];
 
   return (
-    <SectionLayout backgroundImage="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80">
-      <div className="grid lg:grid-cols-2 gap-12 lg:gap-32 items-start relative">
-        {/* Cinematic Header */}
-        <div className="border-t-8 border-black pt-12 relative z-10 lg:pr-8">
-          <motion.div
-            variants={BOLD_HEADING}
-            initial="hidden"
-            whileInView="visible"
-          >
-            <h2 className="text-5xl md:text-[clamp(3.5rem,7vw,8rem)] font-black uppercase mb-12 leading-[0.8] tracking-tighter max-w-[12ch] lg:max-w-none">
-              Impossible<br />
-              <span className="text-gray-300">Scale.</span>
-            </h2>
-          </motion.div>
-          
-          <motion.div
-            variants={FADE_IN}
-            initial="hidden"
-            whileInView="visible"
-            transition={{ delay: 0.5 }}
-          >
-            <p className="text-black font-black uppercase text-2xl leading-tight max-w-lg mb-8 tracking-tight">
-              Located at the crossroads of the world's most affluent market.
-            </p>
-            <div className="flex items-center gap-4">
-              <span className="text-xs font-black uppercase tracking-[0.3em] text-gray-400">
-                Audit_Protocol // Metric_Analysis
-              </span>
-              <div className="h-px flex-grow bg-black/10" />
-            </div>
-          </motion.div>
-        </div>
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: MOTION_TIMING.reveal, ease: FILMIC_EASE }}
+      className="relative w-full h-screen h-[100dvh] pl-20 md:pl-64 overflow-hidden"
+    >
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${SECTION_MEDIA.overview.background})` }}
+      />
+      <div className="absolute inset-0 bg-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/52 via-black/34 to-black/62" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_12%,rgba(255,255,255,0.2),transparent_42%)]" />
 
-        {/* Intelligence Grid */}
-        <div className="grid grid-cols-2 gap-4 relative lg:max-w-2xl ml-auto">
-          {stats.map((stat, idx) => (
+      <motion.div
+        initial={{ opacity: 0.35 }}
+        animate={{ opacity: [0.35, 0.55, 0.35] }}
+        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+        className="pointer-events-none absolute inset-[-4%] bg-[radial-gradient(circle_at_24%_74%,rgba(255,255,255,0.12),transparent_48%)]"
+      />
+
+      {/* Structural lines for cinematic architectural framing */}
+      <div className="absolute left-20 md:left-64 top-0 bottom-0 w-px bg-white/35" />
+      <div className="absolute left-20 md:left-64 right-0 top-[26%] h-px bg-white/22" />
+      <div className="absolute left-20 md:left-64 right-0 bottom-[20%] h-px bg-white/16" />
+
+      <div className="relative z-10 mx-auto flex h-full w-full max-w-6xl min-w-0 flex-col px-6 md:px-10 lg:px-16 py-10 md:py-14 overflow-y-auto overflow-x-hidden scrollbar-hide">
+        <div className="my-auto py-8">
+          <motion.span
+            initial={{ y: 14, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.15, duration: MOTION_TIMING.base, ease: LUXURY_EASE }}
+            className="mb-6 md:mb-10 block text-[10px] md:text-xs font-black uppercase tracking-[0.45em] text-white/78"
+          >
+            The Vision // Chapter 02
+          </motion.span>
+
+          <motion.h2
+            initial={{ y: 22, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.3, duration: MOTION_TIMING.slow, ease: FILMIC_EASE }}
+            className="max-w-[16ch] font-display text-[clamp(2.4rem,6vw,6rem)] font-black uppercase leading-[0.85] tracking-[-0.03em] text-white"
+          >
+            A Global
+            <br />
+            <span className="text-white/58">Empire of Experience.</span>
+          </motion.h2>
+
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.56, duration: MOTION_TIMING.slow, ease: LUXURY_EASE }}
+            className="mt-8 md:mt-12 grid gap-8 md:gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-end"
+          >
+            <div>
+              <p className="max-w-[48rem] text-base md:text-xl font-bold uppercase leading-[1.14] tracking-tight text-white/94">
+                The Dubai Mall is the ultimate international landmark. Strategically located in Downtown Dubai, 
+                it defines the standard for global retail and luxury lifestyle.
+              </p>
+              <p className="mt-5 max-w-[50rem] text-[11px] md:text-xs font-black uppercase tracking-[0.25em] text-white/62">
+                Downtown Dubai // Emaar Group // Global Commercial Standard
+              </p>
+            </div>
+
             <motion.div
-              key={idx}
-              variants={SLIDE_UP}
-              initial="hidden"
-              whileInView="visible"
-              transition={{ delay: idx * 0.15 }}
-              className="border-4 border-black p-8 flex flex-col justify-between h-64 group hover:bg-black hover:text-white transition-colors duration-500 cursor-crosshair relative overflow-hidden"
+              initial={{ opacity: 0, x: 18 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.72, duration: MOTION_TIMING.base, ease: LUXURY_EASE }}
+              className="border-l-2 border-white/35 pl-6 md:pl-8 hidden md:block"
             >
-              {/* Background Number Accent */}
-              <div className="absolute -bottom-4 -right-4 text-9xl font-black opacity-[0.03] group-hover:opacity-10 transition-opacity">
-                {String(idx + 1).padStart(2, '0')}
+              <div className="text-[10px] font-black uppercase tracking-[0.42em] text-white/56">
+                Cultural Positioning
               </div>
-              
-              <div className="text-4xl md:text-6xl font-black tracking-tighter z-10">
-                {stat.value}
-              </div>
-              
-              <div className="z-10">
-                <div className="text-xs font-black uppercase tracking-widest mb-1">
-                  {stat.label}
-                </div>
-                <div className="text-[10px] font-bold uppercase opacity-40 group-hover:opacity-70">
-                  {stat.detail}
-                </div>
-              </div>
+              <p className="mt-3 text-sm md:text-base font-bold uppercase leading-[1.25] tracking-wide text-white/88">
+                Not a mall.
+                <br />
+                A global stage for commerce, culture, and prestige.
+              </p>
             </motion.div>
-          ))}
+          </motion.div>
+
+          <div className="mt-10 md:mt-14 grid grid-cols-2 lg:grid-cols-4 gap-x-4 md:gap-x-6 gap-y-6">
+            {scaleMarkers.map((marker, idx) => (
+              <motion.div
+                key={marker.label}
+                initial={{ y: 16, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: staggerDelay(idx, 0.75, 0.09), duration: MOTION_TIMING.base, ease: LUXURY_EASE }}
+                className="border-t border-white/34 pt-4 md:pt-5"
+              >
+                <div className="text-2xl md:text-4xl lg:text-5xl font-black tracking-[-0.03em] text-white">
+                  {marker.value}
+                </div>
+                <div className="mt-2 text-[9px] md:text-[10px] lg:text-xs font-black uppercase tracking-[0.3em] text-white/75 truncate">
+                  {marker.label}
+                </div>
+                <div className="mt-1 text-[8px] md:text-[9px] lg:text-[10px] font-bold uppercase tracking-[0.22em] text-white/52 truncate">
+                  {marker.detail}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
-      
-      {/* Footer Meta */}
-      <div className="absolute bottom-12 left-20 md:left-64 flex items-center gap-12 w-full pr-32">
-        <div className="flex flex-col">
-          <span className="text-[9px] font-black uppercase tracking-[0.4em] text-gray-300">Data Integrity</span>
-          <span className="text-[10px] font-bold uppercase">Verified Q1_2026</span>
-        </div>
-        <div className="h-[2px] flex-grow bg-gray-100/10" />
-      </div>
-    </SectionLayout>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.95, duration: MOTION_TIMING.base, ease: LUXURY_EASE }}
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-32 md:h-40 bg-gradient-to-t from-black/62 via-black/24 to-transparent"
+      />
+    </motion.section>
   );
 };

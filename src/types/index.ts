@@ -12,6 +12,7 @@ export enum Section {
 export interface NavigationItem {
   id: Section;
   label: string;
+  shortLabel: string;
   description: string;
 }
 

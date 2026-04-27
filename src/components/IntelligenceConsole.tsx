@@ -44,7 +44,7 @@ export const IntelligenceConsole: React.FC = () => {
   };
 
   return (
-    <div className="fixed top-12 right-12 z-[60] font-sans flex flex-col items-end">
+    <div className="fixed top-4 right-4 md:top-12 md:right-12 z-[60] font-sans flex flex-col items-end max-w-[calc(100vw-2rem)]">
       <AnimatePresence>
         {!isOpen ? (
           <motion.button
@@ -64,10 +64,10 @@ export const IntelligenceConsole: React.FC = () => {
               opacity: 1, 
               y: 0, 
               scale: 1,
-              height: isMinimized ? 'auto' : '500px'
+              height: isMinimized ? 'auto' : 'min(500px, calc(100dvh - 4rem))'
             }}
             exit={{ opacity: 0, y: -50, scale: 0.95 }}
-            className="w-[320px] md:w-[400px] bg-white border-4 border-black shadow-[-20px_20px_0px_0px_rgba(0,0,0,1)] flex flex-col overflow-hidden"
+            className="w-[min(400px,calc(100vw-2rem))] bg-white border-4 border-black shadow-[-20px_20px_0px_0px_rgba(0,0,0,1)] flex flex-col overflow-hidden"
           >
             {/* Header */}
             <div className="bg-black text-white p-4 flex items-center justify-between">

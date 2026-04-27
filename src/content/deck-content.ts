@@ -1,21 +1,20 @@
 import { Section, NavigationItem } from '../types';
 
 export const NAVIGATION_ITEMS: NavigationItem[] = [
-  { id: Section.HERO, label: '00. The Vision', description: 'The Future of Destination' },
-  { id: Section.OVERVIEW, label: '01. Scale', description: 'Impact & Demographics' },
-  { id: Section.RETAIL, label: '02. Retail', description: 'Limitless Synergy' },
-  { id: Section.LUXURY, label: '03. The Avenue', description: 'Luxury Redefined' },
-  { id: Section.DINING, label: '04. Lifestyle', description: 'Global Flavors' },
-  { id: Section.ATTRACTIONS, label: '05. Entertainment', description: 'World-Class Brands' },
-  { id: Section.EVENTS, label: '06. Platform', description: 'Global Reach' },
-  { id: Section.DATA, label: '07. Invest', description: 'Leasing & Partnership' }
+  { id: Section.HERO, label: '00. The Vision', shortLabel: 'The Vision', description: 'The Future of Destination' },
+  { id: Section.OVERVIEW, label: '01. Scale', shortLabel: 'Scale', description: 'Impact & Demographics' },
+  { id: Section.RETAIL, label: '02. Retail', shortLabel: 'Retail', description: 'Massive Scale' },
+  { id: Section.LUXURY, label: '03. Fashion Avenue', shortLabel: 'Fashion Avenue', description: 'World Luxury Hub' },
+  { id: Section.DINING, label: '04. Culinary', shortLabel: 'Culinary', description: 'Global Lifestyle' },
+  { id: Section.ATTRACTIONS, label: '05. Attractions', shortLabel: 'Attractions', description: 'Iconic Landmarks' },
+  { id: Section.EVENTS, label: '06. Platform', shortLabel: 'Platform', description: 'Grand Stage' },
+  { id: Section.DATA, label: '07. Invest', shortLabel: 'Invest', description: 'Future Growth' }
 ];
 
 export const DECK_CONTENT = {
   hero: {
-    title: 'American Dream',
-    subtitle: 'Documenting the Future // 001',
-    description: 'A high-velocity destination platform where culture, commerce, and curiosity converge.'
+    title: 'The Dubai Mall',
+    subtitle: 'The Center of Now // 001',
+    description: 'The world\'s most visited retail and entertainment destination, redefined for the modern era.'
   },
-  // Add other section content here for easy CMS injection
 };
