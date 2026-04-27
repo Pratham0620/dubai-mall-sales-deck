@@ -13,9 +13,17 @@
 }
 
 @layer base {
+  html, body, #root {
+    height: 100%;
+    min-height: 100%;
+  }
+
   body {
     @apply bg-[--color-brand-bg] text-black antialiased selection:bg-black selection:text-white;
     font-family: var(--font-sans);
+    margin: 0;
+    overflow: hidden;
+    overscroll-behavior: none;
   }
   
   h1, h2, h3, h4, .font-display {

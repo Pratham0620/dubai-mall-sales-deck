@@ -1,14 +1,14 @@
 import { Section, NavigationItem } from '../types';
 
 export const NAVIGATION_ITEMS: NavigationItem[] = [
-  { id: Section.HERO, label: '00. The Vision', description: 'The Future of Destination' },
-  { id: Section.OVERVIEW, label: '01. Scale', description: 'Impact & Demographics' },
-  { id: Section.RETAIL, label: '02. Retail', description: 'Limitless Synergy' },
-  { id: Section.LUXURY, label: '03. The Avenue', description: 'Luxury Redefined' },
-  { id: Section.DINING, label: '04. Lifestyle', description: 'Global Flavors' },
-  { id: Section.ATTRACTIONS, label: '05. Entertainment', description: 'World-Class Brands' },
-  { id: Section.EVENTS, label: '06. Platform', description: 'Global Reach' },
-  { id: Section.DATA, label: '07. Invest', description: 'Leasing & Partnership' }
+  { id: Section.HERO, label: '00. The Vision', shortLabel: 'The Vision', description: 'The Future of Destination' },
+  { id: Section.OVERVIEW, label: '01. Scale', shortLabel: 'Scale', description: 'Impact & Demographics' },
+  { id: Section.RETAIL, label: '02. Retail', shortLabel: 'Retail', description: 'Limitless Synergy' },
+  { id: Section.LUXURY, label: '03. The Avenue', shortLabel: 'The Avenue', description: 'Luxury Redefined' },
+  { id: Section.DINING, label: '04. Lifestyle', shortLabel: 'Lifestyle', description: 'Global Flavors' },
+  { id: Section.ATTRACTIONS, label: '05. Entertainment', shortLabel: 'Entertainment', description: 'World-Class Brands' },
+  { id: Section.EVENTS, label: '06. Platform', shortLabel: 'Platform', description: 'Global Reach' },
+  { id: Section.DATA, label: '07. Invest', shortLabel: 'Invest', description: 'Leasing & Partnership' }
 ];
 
 export const DECK_CONTENT = {
