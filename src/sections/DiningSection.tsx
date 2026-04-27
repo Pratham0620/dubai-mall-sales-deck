@@ -82,8 +82,8 @@ export const DiningSection: React.FC = () => {
             alt="Dining Experience"
           />
           <div className="absolute inset-x-0 bottom-0 bg-white p-6 md:p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out">
-            <div className="text-[10px] font-black uppercase tracking-[0.4em] text-black/40 mb-2">Featured Concept</div>
-            <div className="text-2xl md:text-3xl font-black uppercase text-black tracking-tighter italic">The Winter Garden</div>
+            <div className="text-[10px] font-black uppercase tracking-[0.4em] text-black/40 mb-2">Premium Experience</div>
+            <div className="text-2xl md:text-3xl font-black uppercase text-black tracking-tighter italic">Fashion Avenue Dining</div>
             <div className="mt-4 h-1 w-24 bg-black/10" />
           </div>
           

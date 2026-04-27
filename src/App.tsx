@@ -136,7 +136,7 @@ export default function App() {
       </div>
 
       <div className="fixed bottom-8 left-28 md:left-72 z-50 hidden lg:block">
-        <div className="text-[10px] font-black uppercase tracking-[0.5em] text-black/20 animate-pulse hidden md:block">
+        <div className="text-[10px] font-black uppercase tracking-[0.5em] text-white/30 animate-pulse hidden md:block drop-shadow-sm">
           Explore_The_Journey // Scroll_To_Navigate
         </div>
       </div>

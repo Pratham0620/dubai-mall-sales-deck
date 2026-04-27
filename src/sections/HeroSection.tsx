@@ -62,20 +62,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNext }) => {
       />
 
       {/* Layered cinematic atmosphere */}
-      <div className="absolute inset-0 bg-black/12" />
-      <div className="absolute inset-0 bg-gradient-to-br from-black/45 via-black/18 to-black/52" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_18%,rgba(255,255,255,0.26),transparent_42%)]" />
+      <div className="absolute inset-0 bg-black/8" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black/35 via-transparent to-black/45" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_18%,rgba(255,255,255,0.2),transparent_42%)]" />
       <motion.div
         style={overlayStyle}
-        className="pointer-events-none absolute inset-[-6%] bg-[radial-gradient(circle_at_28%_74%,rgba(255,255,255,0.2),transparent_46%)]"
+        className="pointer-events-none absolute inset-[-6%] bg-[radial-gradient(circle_at_28%_74%,rgba(255,255,255,0.15),transparent_46%)]"
         animate={prefersReducedMotion ? undefined : { scale: [1, 1.012, 1] }}
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
       />
 
       {/* Architectural edge framing */}
-      <div className="absolute left-20 md:left-64 top-0 bottom-0 w-px bg-white/45" />
-      <div className="absolute right-0 top-0 bottom-0 w-16 border-l-4 border-white/32" />
-      <div className="absolute left-20 md:left-64 right-0 top-[22%] h-px bg-white/28" />
+      <div className="absolute left-20 md:left-64 top-0 bottom-0 w-px bg-white/35" />
+      <div className="absolute right-0 top-0 bottom-0 w-16 border-l-4 border-white/22" />
+      <div className="absolute left-20 md:left-64 right-0 top-[22%] h-px bg-white/18" />
 
       <div className="relative z-10 flex h-full w-full items-center">
         <div className="mx-auto w-full max-w-6xl min-w-0 px-6 md:px-10 lg:px-16 py-10 md:py-14">
@@ -84,7 +84,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNext }) => {
               initial={{ y: 18, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2, duration: MOTION_TIMING.base, ease: LUXURY_EASE }}
-              className="mb-8 md:mb-10 block text-[10px] md:text-xs font-black uppercase tracking-[0.42em] md:tracking-[0.45em] text-white/80"
+              className="mb-8 md:mb-10 block text-[10px] md:text-xs font-black uppercase tracking-[0.42em] md:tracking-[0.45em] text-white/90 drop-shadow-sm"
             >
               Documenting the Future // 001
             </motion.span>
@@ -93,11 +93,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNext }) => {
               initial={{ y: 26, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.38, duration: MOTION_TIMING.slow, ease: FILMIC_EASE }}
-              className="font-display text-[clamp(2.5rem,7vw,7.5rem)] font-black uppercase leading-[0.75] tracking-[-0.032em] text-white drop-shadow-[0_16px_36px_rgba(0,0,0,0.3)]"
+              className="font-display text-[clamp(2.5rem,7vw,7.5rem)] font-black uppercase leading-[0.75] tracking-[-0.032em] text-white drop-shadow-[0_12px_45px_rgba(0,0,0,0.7)]"
             >
               The Dubai
               <br />
-              <span className="text-white/72">Mall</span>
+              <span className="text-white">Mall</span>
             </motion.h1>
 
             <motion.div
@@ -106,7 +106,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNext }) => {
               transition={{ delay: 0.62, duration: MOTION_TIMING.slow, ease: LUXURY_EASE }}
               className="mt-12 md:mt-16 grid gap-10 md:gap-12 md:grid-cols-[minmax(0,1fr)_auto] md:items-end"
             >
-              <p className="max-w-[42rem] text-base md:text-xl text-white/95 font-bold uppercase leading-[1.15] tracking-tight">
+              <p className="max-w-[42rem] text-base md:text-xl text-white font-black uppercase leading-[1.15] tracking-tight drop-shadow-[0_2px_15px_rgba(0,0,0,0.5)]">
                 The epicenter of global commerce, luxury, and entertainment — positioned at the heart of Downtown Dubai.
               </p>
 

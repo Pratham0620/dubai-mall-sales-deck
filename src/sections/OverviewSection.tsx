@@ -53,11 +53,11 @@ export const OverviewSection: React.FC = () => {
             initial={{ y: 22, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: MOTION_TIMING.slow, ease: FILMIC_EASE }}
-            className="max-w-[16ch] font-display text-[clamp(2.4rem,6vw,6rem)] font-black uppercase leading-[0.85] tracking-[-0.03em] text-white"
+            className="max-w-[16ch] font-display text-[clamp(2.4rem,6vw,6rem)] font-black uppercase leading-[0.85] tracking-[-0.03em] text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]"
           >
             A Global
             <br />
-            <span className="text-white/58">Empire of Experience.</span>
+            <span className="text-white">Empire of Experience.</span>
           </motion.h2>
 
           <motion.div
@@ -67,11 +67,11 @@ export const OverviewSection: React.FC = () => {
             className="mt-8 md:mt-12 grid gap-8 md:gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-end"
           >
             <div>
-              <p className="max-w-[48rem] text-base md:text-xl font-bold uppercase leading-[1.14] tracking-tight text-white/94">
+              <p className="max-w-[48rem] text-base md:text-xl font-bold uppercase leading-[1.14] tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.4)]">
                 The Dubai Mall is the ultimate international landmark. Strategically located in Downtown Dubai, 
                 it defines the standard for global retail and luxury lifestyle.
               </p>
-              <p className="mt-5 max-w-[50rem] text-[11px] md:text-xs font-black uppercase tracking-[0.25em] text-white/62">
+              <p className="mt-5 max-w-[50rem] text-[11px] md:text-xs font-black uppercase tracking-[0.25em] text-white/90">
                 Downtown Dubai // Emaar Group // Global Commercial Standard
               </p>
             </div>

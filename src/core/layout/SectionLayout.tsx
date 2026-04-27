@@ -17,7 +17,9 @@ export const SectionLayout: React.FC<SectionLayoutProps> = ({
   variant = 'light'
 }) => {
   const isDark = variant === 'dark';
-  const defaultOverlay = isDark ? 'rgba(0,0,0,0.6)' : 'rgba(255,255,255,0.85)';
+  const defaultOverlay = isDark 
+    ? 'linear-gradient(to right, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.65) 100%)' 
+    : 'rgba(255,255,255,0.88)';
   const finalOverlay = overlayColor || defaultOverlay;
 
   return (
@@ -26,11 +28,11 @@ export const SectionLayout: React.FC<SectionLayoutProps> = ({
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 1 }}
-      className={`relative w-full h-screen h-[100dvh] flex items-stretch justify-center pl-20 md:pl-64 overflow-hidden ${isDark ? 'bg-black text-white' : 'bg-white text-black'}`}
+      className={`relative w-full h-screen h-[100dvh] flex items-stretch justify-center pl-20 md:pl-64 overflow-hidden ${isDark ? 'bg-[#0a0a0a] text-white' : 'bg-white text-black'}`}
     >
       {backgroundVideo ? (
         <video
-          className="absolute inset-0 z-0 h-full w-full object-cover opacity-30 grayscale contrast-125"
+          className={`absolute inset-0 z-0 h-full w-full object-cover ${isDark ? 'opacity-40 grayscale-[0.2] brightness-90' : 'opacity-30 grayscale contrast-125'}`}
           src={backgroundVideo}
           autoPlay
           muted
@@ -42,21 +44,18 @@ export const SectionLayout: React.FC<SectionLayoutProps> = ({
           className="absolute inset-0 z-0 bg-cover bg-center"
           style={{ 
             backgroundImage: `url(${backgroundImage})`,
-            filter: isDark ? 'grayscale(0.4) brightness(0.7)' : 'grayscale(1) contrast(1.2) opacity(0.2)'
+            filter: isDark ? 'grayscale(0.15) brightness(0.7)' : 'grayscale(1) contrast(1.1) opacity(0.15)'
           }}
         />
       )}
       
       {isDark && (
-        <>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 z-[1]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent,rgba(0,0,0,0.4))] z-[1]" />
-        </>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(255,255,255,0.04),transparent_60%)] z-[1]" />
       )}
 
       <div 
         className="absolute inset-0 z-[1]" 
-        style={{ backgroundColor: finalOverlay }}
+        style={{ background: finalOverlay }}
       />
       
       {/* Decorative Bold Lines */}

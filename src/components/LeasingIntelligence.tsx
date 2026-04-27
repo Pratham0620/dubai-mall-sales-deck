@@ -48,27 +48,27 @@ export const LeasingIntelligence: React.FC<LeasingIntelligenceProps> = ({ isOpen
             <div className="flex-1 overflow-y-auto pr-4 scrollbar-hide">
               <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter leading-[0.85] mb-8">
                 Leasing<br />
-                <span className="text-black/30 text-4xl md:text-5xl">Intelligence</span>
+                <span className="text-black/40 text-4xl md:text-5xl">Intelligence</span>
               </h2>
 
-              <p className="text-lg font-bold uppercase tracking-tight leading-tight mb-12 border-l-8 border-black pl-8">
+              <p className="text-lg font-black uppercase tracking-tight leading-tight mb-12 border-l-8 border-black pl-8">
                 The Dubai Mall offers world-class retail environments with unmatched consumer velocity. We don't just lease space; we architect brand legacies.
               </p>
 
               <div className="grid gap-6 mb-12">
                 {dataPoints.map((point) => (
-                  <div key={point.label} className="border-2 border-black p-6 flex items-center justify-between group hover:bg-black hover:text-white transition-all">
+                  <div key={point.label} className="border-2 border-black p-6 flex items-center justify-between group hover:bg-black hover:text-white transition-all bg-gray-50">
                     <div className="flex items-center gap-6">
-                      <div className="p-4 border-2 border-black group-hover:border-white">
+                      <div className="p-4 border-2 border-black group-hover:border-white bg-white group-hover:bg-transparent transition-colors">
                         {point.icon}
                       </div>
                       <div>
-                        <div className="text-[10px] font-black uppercase tracking-widest opacity-40 group-hover:opacity-100">{point.label}</div>
+                        <div className="text-[10px] font-black uppercase tracking-widest opacity-60 group-hover:opacity-100">{point.label}</div>
                         <div className="text-3xl font-black tracking-tighter">{point.value}</div>
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="text-[10px] font-black uppercase tracking-widest text-emerald-600 group-hover:text-emerald-400">{point.trend}</div>
+                      <div className="text-xs font-black uppercase tracking-widest text-emerald-700 group-hover:text-emerald-400">{point.trend}</div>
                     </div>
                   </div>
                 ))}

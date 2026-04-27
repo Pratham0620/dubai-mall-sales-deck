@@ -35,9 +35,9 @@ export const LuxurySection: React.FC = () => {
             initial="hidden"
             whileInView="visible"
           >
-            <h2 className="text-5xl md:text-[clamp(3rem,7vw,6.5rem)] font-black text-white leading-[0.82] uppercase tracking-tighter">
+            <h2 className="text-5xl md:text-[clamp(3rem,7vw,6.5rem)] font-black text-white leading-[0.82] uppercase tracking-tighter drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
               Fashion<br />
-              <span className="text-white/40">Avenue</span>
+              <span className="text-white/60">Avenue</span>
             </h2>
           </motion.div>
         </div>
@@ -53,14 +53,14 @@ export const LuxurySection: React.FC = () => {
               transition={{ delay: staggerDelay(idx, 0.4, 0.15) }}
               className="group cursor-none"
             >
-              <DeckCard className="p-5 md:p-6 min-h-64 md:min-h-72 border-white/30 flex flex-col justify-between hover:bg-white hover:text-black duration-700 ease-out bg-black/40 backdrop-blur-sm">
+              <DeckCard className="p-5 md:p-6 min-h-64 md:min-h-72 border-white/20 flex flex-col justify-between hover:bg-white hover:text-black duration-700 ease-out bg-black/50 backdrop-blur-md">
               {/* Dynamic Number Gradient */}
               <div className="absolute top-0 right-0 p-8 text-6xl font-black opacity-[0.03] group-hover:opacity-10 transition-opacity italic">
                 {String(idx + 1).padStart(2, '0')}
               </div>
               
               <div className="z-10 mt-auto">
-                <div className="text-[10px] font-black uppercase tracking-[0.3em] mb-3 opacity-40 group-hover:opacity-100 group-hover:text-gray-400 transition-all duration-500">
+                <div className="text-[10px] font-black uppercase tracking-[0.3em] mb-3 opacity-60 group-hover:opacity-100 group-hover:text-black/40 transition-all duration-500">
                   {brand.category}
                 </div>
                 <div className="text-3xl md:text-4xl font-black tracking-tighter leading-[0.9] uppercase group-hover:translate-x-4 transition-transform duration-500">
