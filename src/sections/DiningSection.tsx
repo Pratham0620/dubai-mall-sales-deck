@@ -2,8 +2,6 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { SectionLayout } from '../core/layout/SectionLayout';
 import { BOLD_HEADING, SLIDE_UP, FADE_IN } from '../core/animations/variants';
-import { staggerDelay } from '../core/animations/presets';
-import { SECTION_MEDIA } from '../content/section-media';
 
 export const DiningSection: React.FC = () => {
   const highlights = [
@@ -13,9 +11,9 @@ export const DiningSection: React.FC = () => {
   ];
 
   return (
-    <SectionLayout backgroundImage={SECTION_MEDIA.dining.background}>
-      <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center font-sans">
-        <div className="space-y-8 md:space-y-10 border-l-[10px] border-black pl-8 md:pl-12 relative">
+    <SectionLayout backgroundImage="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80">
+      <div className="grid lg:grid-cols-2 gap-24 items-center font-sans">
+        <div className="space-y-16 border-l-[12px] border-black pl-16 relative">
           {/* Vertical Label */}
           <div className="absolute -left-16 top-0 origin-bottom-left -rotate-90 text-[10px] font-black uppercase tracking-[0.8em] text-gray-300 hidden xl:block">
             LIFESTYLE_MOMENTS // 004
@@ -29,7 +27,7 @@ export const DiningSection: React.FC = () => {
             <span className="text-gray-400 font-black text-xs uppercase tracking-[0.5em] mb-6 block">
               PHASE_04 // CULINARY_EXCELLENCE
             </span>
-            <h2 className="text-5xl md:text-[clamp(3rem,7vw,6rem)] font-black uppercase leading-[0.82] tracking-tighter">
+            <h2 className="text-6xl md:text-[clamp(4.5rem,9vw,9rem)] font-black uppercase leading-[0.8] tracking-tighter">
               Global <br />
               <span className="text-gray-100/50">Palate</span>
             </h2>
@@ -40,24 +38,24 @@ export const DiningSection: React.FC = () => {
             initial="hidden"
             whileInView="visible"
             transition={{ delay: 0.5 }}
-            className="text-black font-black uppercase text-xl md:text-2xl leading-tight max-w-md tracking-tight"
+            className="text-black font-black uppercase text-2xl leading-tight max-w-md tracking-tight"
           >
             Food is a primary lifestyle draw. A frictionless journey from street food to Michelin-star prestige.
           </motion.p>
 
-          <div className="flex flex-col space-y-5 md:space-y-6">
+          <div className="flex flex-col space-y-8">
             {highlights.map((item, idx) => (
               <motion.div 
                 key={idx}
                 variants={SLIDE_UP}
                 initial="hidden"
                 whileInView="visible"
-                transition={{ delay: staggerDelay(idx, 0.6, 0.15) }}
-                className="flex items-center space-x-5 md:space-x-6 group cursor-none"
+                transition={{ delay: idx * 0.15 + 0.6 }}
+                className="flex items-center space-x-8 group cursor-none"
               >
                 <div className="h-4 w-4 bg-black group-hover:scale-150 transition-transform duration-500" />
                 <div>
-                  <span className="text-base md:text-lg font-black uppercase tracking-tight block group-hover:translate-x-2 transition-transform duration-500">{item.title}</span>
+                  <span className="text-lg font-black uppercase tracking-tight block group-hover:translate-x-2 transition-transform duration-500">{item.title}</span>
                   <span className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em]">/ {item.venue}</span>
                 </div>
               </motion.div>
@@ -69,21 +67,19 @@ export const DiningSection: React.FC = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-          className="relative aspect-[4/5] max-h-[46vh] lg:max-h-[58vh] bg-white border-[8px] border-black overflow-hidden group shadow-2xl"
+          className="relative aspect-[4/5] bg-white border-[8px] border-black overflow-hidden group shadow-2xl"
         >
           <motion.img 
             initial={{ scale: 1.3 }}
             whileInView={{ scale: 1 }}
             transition={{ duration: 2 }}
-            src={SECTION_MEDIA.dining.showcase}
-            loading="eager"
-            decoding="async"
+            src="https://images.unsplash.com/photo-1550966841-3ee7adac1668?auto=format&fit=crop&q=80" 
             className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-1000"
             alt="Dining Experience"
           />
-          <div className="absolute inset-x-0 bottom-0 bg-black p-6 md:p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out">
+          <div className="absolute inset-x-0 bottom-0 bg-black p-10 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out">
             <div className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-400 mb-2">Featured Concept</div>
-            <div className="text-2xl md:text-3xl font-black uppercase text-white tracking-tighter italic">The Winter Garden</div>
+            <div className="text-4xl font-black uppercase text-white tracking-tighter italic">The Winter Garden</div>
             <div className="mt-4 h-1 w-24 bg-white/20" />
           </div>
           
