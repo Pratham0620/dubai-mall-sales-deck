@@ -12,8 +12,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNext }) => {
   const prefersReducedMotion = useReducedMotion();
   const pointerX = useMotionValue(0);
   const pointerY = useMotionValue(0);
-  const springX = useSpring(pointerX, { stiffness: 32, damping: 20, mass: 0.9 });
-  const springY = useSpring(pointerY, { stiffness: 32, damping: 20, mass: 0.9 });
+  const springX = useSpring(pointerX, { stiffness: 45, damping: 25, mass: 0.8 });
+  const springY = useSpring(pointerY, { stiffness: 45, damping: 25, mass: 0.8 });
 
   const overlayStyle = useMemo(
     () =>
@@ -22,6 +22,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNext }) => {
         : {
             x: springX,
             y: springY,
+            z: 0,
           },
     [prefersReducedMotion, springX, springY]
   );
@@ -48,10 +49,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNext }) => {
       transition={{ duration: MOTION_TIMING.reveal, ease: FILMIC_EASE }}
       onMouseMove={handlePointerMove}
       onMouseLeave={resetPointer}
-      className="relative w-full h-screen h-[100dvh] pl-20 md:pl-64 overflow-hidden"
+      className="relative w-full h-screen h-[100dvh] pl-20 md:pl-64 overflow-hidden transform-gpu"
     >
       <video
-        className="absolute inset-0 h-full w-full object-cover"
+        className="absolute inset-0 h-full w-full object-cover transform-gpu pointer-events-none"
         src={SECTION_MEDIA.hero.video}
         poster={SECTION_MEDIA.hero.background}
         autoPlay
@@ -62,38 +63,38 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNext }) => {
       />
 
       {/* Layered cinematic atmosphere */}
-      <div className="absolute inset-0 bg-black/8" />
-      <div className="absolute inset-0 bg-gradient-to-br from-black/35 via-transparent to-black/45" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_18%,rgba(255,255,255,0.2),transparent_42%)]" />
+      <div className="absolute inset-0 bg-black/8 pointer-events-none transform-gpu" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black/35 via-transparent to-black/45 pointer-events-none transform-gpu" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_18%,rgba(255,255,255,0.2),transparent_42%)] pointer-events-none transform-gpu" />
       <motion.div
         style={overlayStyle}
-        className="pointer-events-none absolute inset-[-6%] bg-[radial-gradient(circle_at_28%_74%,rgba(255,255,255,0.15),transparent_46%)]"
+        className="pointer-events-none absolute inset-[-6%] bg-[radial-gradient(circle_at_28%_74%,rgba(255,255,255,0.15),transparent_46%)] transform-gpu"
         animate={prefersReducedMotion ? undefined : { scale: [1, 1.012, 1] }}
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
       />
 
       {/* Architectural edge framing */}
-      <div className="absolute left-20 md:left-64 top-0 bottom-0 w-px bg-white/35" />
-      <div className="absolute right-0 top-0 bottom-0 w-16 border-l-4 border-white/22" />
-      <div className="absolute left-20 md:left-64 right-0 top-[22%] h-px bg-white/18" />
+      <div className="absolute left-20 md:left-64 top-0 bottom-0 w-px bg-white/35 pointer-events-none transform-gpu" />
+      <div className="absolute right-0 top-0 bottom-0 w-16 border-l-4 border-white/22 pointer-events-none transform-gpu" />
+      <div className="absolute left-20 md:left-64 right-0 top-[22%] h-px bg-white/18 pointer-events-none transform-gpu" />
 
-      <div className="relative z-10 flex h-full w-full items-center">
-        <div className="mx-auto w-full max-w-6xl min-w-0 px-6 md:px-10 lg:px-16 py-10 md:py-14">
-          <div className="max-w-[56rem]">
+      <div className="relative z-10 flex h-full w-full items-center transform-gpu">
+        <div className="mx-auto w-full max-w-6xl min-w-0 px-6 md:px-10 lg:px-16 py-10 md:py-14 transform-gpu">
+          <div className="max-w-[56rem] transform-gpu">
             <motion.span
-              initial={{ y: 18, opacity: 0 }}
+              initial={{ y: 15, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2, duration: MOTION_TIMING.base, ease: LUXURY_EASE }}
-              className="mb-8 md:mb-10 block text-[10px] md:text-xs font-black uppercase tracking-[0.42em] md:tracking-[0.45em] text-white/90 drop-shadow-sm"
+              className="mb-8 md:mb-10 block text-[10px] md:text-xs font-black uppercase tracking-[0.42em] md:tracking-[0.45em] text-white/90 drop-shadow-sm transform-gpu"
             >
               Documenting the Future // 001
             </motion.span>
 
             <motion.h1
-              initial={{ y: 26, opacity: 0 }}
+              initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.38, duration: MOTION_TIMING.slow, ease: FILMIC_EASE }}
-              className="font-display text-[clamp(2.5rem,7vw,7.5rem)] font-black uppercase leading-[0.75] tracking-[-0.032em] text-white drop-shadow-[0_12px_45px_rgba(0,0,0,0.7)]"
+              className="font-display text-[clamp(2.5rem,7vw,7.5rem)] font-black uppercase leading-[0.75] tracking-[-0.032em] text-white drop-shadow-[0_12px_45px_rgba(0,0,0,0.7)] transform-gpu"
             >
               The Dubai
               <br />
@@ -101,12 +102,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNext }) => {
             </motion.h1>
 
             <motion.div
-              initial={{ y: 24, opacity: 0 }}
+              initial={{ y: 18, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.62, duration: MOTION_TIMING.slow, ease: LUXURY_EASE }}
-              className="mt-12 md:mt-16 grid gap-10 md:gap-12 md:grid-cols-[minmax(0,1fr)_auto] md:items-end"
+              transition={{ delay: 0.55, duration: MOTION_TIMING.slow, ease: LUXURY_EASE }}
+              className="mt-12 md:mt-16 grid gap-10 md:gap-12 md:grid-cols-[minmax(0,1fr)_auto] md:items-end transform-gpu"
             >
-              <p className="max-w-[42rem] text-base md:text-xl text-white font-black uppercase leading-[1.15] tracking-tight drop-shadow-[0_2px_15px_rgba(0,0,0,0.5)]">
+              <p className="max-w-[42rem] text-base md:text-xl text-white font-black uppercase leading-[1.15] tracking-tight drop-shadow-[0_2px_15px_rgba(0,0,0,0.5)] transform-gpu">
                 The epicenter of global commerce, luxury, and entertainment — positioned at the heart of Downtown Dubai.
               </p>
 
@@ -114,7 +115,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNext }) => {
                 whileHover={prefersReducedMotion ? undefined : { y: -2, scale: 1.005 }}
                 whileTap={prefersReducedMotion ? undefined : { scale: 0.985 }}
                 onClick={onNext}
-                className="group inline-flex items-center border-2 border-white/80 bg-white/16 px-8 py-4 text-white backdrop-blur-sm transition-all duration-300 hover:border-white hover:bg-white hover:text-black"
+                className="group inline-flex items-center border-2 border-white/80 bg-white/16 px-8 py-4 text-white backdrop-blur-sm transition-all duration-300 hover:border-white hover:bg-white hover:text-black transform-gpu"
               >
                 <span className="text-xs font-black uppercase tracking-[0.16em]">
                   Execute Experience
@@ -131,11 +132,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNext }) => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.95, duration: MOTION_TIMING.base, ease: LUXURY_EASE }}
-            className="mt-14 md:mt-20 flex items-center gap-6 md:gap-9"
+            transition={{ delay: 0.8, duration: MOTION_TIMING.base, ease: LUXURY_EASE }}
+            className="mt-14 md:mt-20 flex items-center gap-6 md:gap-9 transform-gpu"
           >
-            <div className="h-[2px] w-12 md:w-16 bg-white/45" />
-            <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.45em] text-white/65">
+            <div className="h-[2px] w-12 md:w-16 bg-white/45 transform-gpu" />
+            <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.45em] text-white/65 transform-gpu">
               Immersive Briefing // Premium Sequence
             </span>
           </motion.div>
@@ -145,8 +146,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNext }) => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.05, duration: MOTION_TIMING.reveal, ease: FILMIC_EASE }}
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-28 md:h-36 bg-gradient-to-t from-black/52 via-black/18 to-transparent"
+        transition={{ delay: 0.9, duration: MOTION_TIMING.reveal, ease: FILMIC_EASE }}
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-28 md:h-36 bg-gradient-to-t from-black/52 via-black/18 to-transparent transform-gpu"
       />
     </motion.section>
   );

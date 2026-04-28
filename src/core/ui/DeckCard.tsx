@@ -8,7 +8,7 @@ interface DeckCardProps {
 export const DeckCard: React.FC<DeckCardProps> = ({ children, className = '' }) => {
   return (
     <div
-      className={`relative border-4 border-black overflow-hidden transition-all duration-500 ${className}`.trim()}
+      className={`relative border border-white/10 overflow-hidden transition-all duration-700 ${className}`.trim()}
     >
       {children}
     </div>

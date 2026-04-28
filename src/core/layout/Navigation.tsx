@@ -11,58 +11,46 @@ interface NavigationProps {
 
 export const Navigation: React.FC<NavigationProps> = ({ currentSection, onSectionChange }) => {
   return (
-    <nav className="fixed left-0 top-0 h-[100dvh] w-20 md:w-64 z-50 flex flex-col justify-between py-8 md:py-12 px-4 md:px-6 border-r-4 border-black bg-white/95 backdrop-blur-sm overflow-y-auto overflow-x-hidden">
+    <nav className="fixed left-0 top-0 h-[100dvh] w-20 md:w-64 z-50 flex flex-col justify-between py-8 md:py-12 px-4 md:px-6 border-r border-white/5 bg-black/80 backdrop-blur-3xl overflow-y-auto overflow-x-hidden">
       <div className="flex flex-col items-center md:items-start space-y-12">
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: MOTION_TIMING.base, ease: LUXURY_EASE }}
-          className="text-black font-display text-2xl font-black uppercase leading-none tracking-tighter"
+          className="text-white font-display text-2xl font-black uppercase leading-none tracking-tighter"
         >
-          DM<span className="hidden md:inline"> / 26</span>
+          DM<span className="opacity-20 hidden md:inline"> / 26</span>
         </motion.div>
         
         <div className="flex flex-col space-y-6 w-full">
           {NAVIGATION_ITEMS.map((item) => (
             <motion.button
               key={item.id}
-              whileHover={{ x: 3 }}
+              whileHover={{ x: 2 }}
               whileTap={{ scale: 0.985 }}
               onClick={() => onSectionChange(item.id)}
-              className={`group relative flex items-center space-x-4 text-left transition-all duration-300 border-l-4 ${
+              className={`group relative flex items-center space-x-4 text-left transition-all duration-500 ${
                 currentSection === item.id 
-                  ? 'border-black pl-4' 
-                  : 'border-transparent pl-0 hover:pl-2'
+                  ? 'text-white' 
+                  : 'text-white/30 hover:text-white/60'
               }`}
             >
-              <motion.span
-                aria-hidden
-                className={`absolute -left-[7px] top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-black transition-opacity duration-300 ${
-                  currentSection === item.id ? 'opacity-100' : 'opacity-0 group-hover:opacity-40'
-                }`}
-                animate={currentSection === item.id ? { scale: [1, 1.2, 1] } : { scale: 1 }}
-                transition={{ duration: 1.8, repeat: currentSection === item.id ? Infinity : 0, ease: 'easeInOut' }}
-              />
-
               {currentSection === item.id && (
                 <motion.span
-                  layoutId="active-nav-rail"
+                  layoutId="active-nav-dot"
                   aria-hidden
-                  className="absolute -left-1 top-1/2 h-8 w-1 -translate-y-1/2 rounded-full bg-black"
+                  className="absolute -left-2 w-1 h-4 bg-white"
                   transition={NAV_SPRING}
                 />
               )}
 
               <div className="flex flex-col">
                 <motion.span
-                  animate={currentSection === item.id ? { x: 1 } : { x: 0 }}
-                  transition={{ duration: MOTION_TIMING.fast, ease: LUXURY_EASE }}
-                  className={`font-display text-xs md:text-sm font-black uppercase tracking-tight transition-colors duration-300 ${
-                  currentSection === item.id ? 'text-black' : 'text-gray-300'
-                }`}>
+                  className="font-display text-xs md:text-sm font-black uppercase tracking-widest"
+                >
                   {item.shortLabel}
                 </motion.span>
-                <span className="hidden md:block text-[9px] font-bold uppercase tracking-[0.2em] text-gray-400 mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="hidden md:block text-[9px] font-bold uppercase tracking-[0.2em] text-white/20 mt-1 opacity-0 group-hover:opacity-100 transition-all duration-500">
                   {item.description}
                 </span>
               </div>
@@ -71,9 +59,9 @@ export const Navigation: React.FC<NavigationProps> = ({ currentSection, onSectio
         </div>
       </div>
 
-      <div className="hidden md:block border-t-4 border-black pt-6">
-        <div className="text-[10px] font-black uppercase tracking-[0.3em] leading-relaxed text-black/40">
-          The Dubai Mall<br />Downtown // UAE
+      <div className="hidden md:block border-t border-white/5 pt-6">
+        <div className="text-[10px] font-black uppercase tracking-[0.4em] leading-relaxed text-white/20">
+          Downtown Dubai<br />Asset_Mgmt // V.26
         </div>
       </div>
     </nav>

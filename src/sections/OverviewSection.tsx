@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { FILMIC_EASE, LUXURY_EASE, MOTION_TIMING, staggerDelay } from '../core/animations/presets';
+import { LUXURY_EASE, MOTION_TIMING, FILMIC_EASE, staggerDelay } from '../core/animations/presets';
 import { SECTION_MEDIA } from '../content/section-media';
+import { DeckCard } from '../core/ui/DeckCard';
 
 export const OverviewSection: React.FC = () => {
   const scaleMarkers = [
@@ -93,24 +94,37 @@ export const OverviewSection: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          <div className="mt-10 md:mt-14 grid grid-cols-2 lg:grid-cols-4 gap-x-4 md:gap-x-6 gap-y-6">
+          <div className="mt-10 md:mt-14 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {scaleMarkers.map((marker, idx) => (
               <motion.div
-                key={marker.label}
+                key={idx}
                 initial={{ y: 16, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: staggerDelay(idx, 0.75, 0.09), duration: MOTION_TIMING.base, ease: LUXURY_EASE }}
-                className="border-t border-white/34 pt-4 md:pt-5"
+                className="group relative"
               >
-                <div className="text-2xl md:text-4xl lg:text-5xl font-black tracking-[-0.03em] text-white">
-                  {marker.value}
-                </div>
-                <div className="mt-2 text-[9px] md:text-[10px] lg:text-xs font-black uppercase tracking-[0.3em] text-white/75 truncate">
-                  {marker.label}
-                </div>
-                <div className="mt-1 text-[8px] md:text-[9px] lg:text-[10px] font-bold uppercase tracking-[0.22em] text-white/52 truncate">
-                  {marker.detail}
-                </div>
+                <DeckCard className="p-4 md:p-6 min-h-40 md:min-h-48 border-white/10 flex flex-col justify-end bg-black/30 backdrop-blur-xl overflow-hidden group-hover:bg-white group-hover:text-black transition-all duration-700">
+                  {/* Atmospheric Background */}
+                  <div className="absolute inset-0 z-0 opacity-20 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-110">
+                    <img 
+                      src={SECTION_MEDIA.overview.images[idx]} 
+                      alt={marker.label}
+                      className="w-full h-full object-cover filter grayscale contrast-125 group-hover:grayscale-0 transition-all duration-1000" 
+                    />
+                  </div>
+                  
+                  {/* Overlay */}
+                  <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-white/60 group-hover:via-white/20 transition-all duration-700" />
+
+                  <div className="relative z-10">
+                    <div className="text-2xl md:text-4xl font-black tracking-tighter text-white group-hover:text-black transition-colors">
+                      {marker.value}
+                    </div>
+                    <div className="mt-1 text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] text-white/70 group-hover:text-black/60 transition-colors">
+                      {marker.label}
+                    </div>
+                  </div>
+                </DeckCard>
               </motion.div>
             ))}
           </div>

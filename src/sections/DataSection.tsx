@@ -5,6 +5,7 @@ import { MagneticButton } from '../core/ui/MagneticButton';
 import { BOLD_HEADING, SLIDE_UP, FADE_IN } from '../core/animations/variants';
 import { DeckCard } from '../core/ui/DeckCard';
 import { LeasingIntelligence } from '../components/LeasingIntelligence';
+import { Globe, ShieldCheck, ArrowRight, Zap } from 'lucide-react';
 import { SECTION_MEDIA } from '../content/section-media';
 
 interface CtaItem {
@@ -27,77 +28,135 @@ export const DataSection: React.FC = () => {
 
   return (
     <SectionLayout backgroundImage={SECTION_MEDIA.data.background} variant="dark">
-      <div className="flex flex-col justify-center relative font-sans">
-        <div className="grid lg:grid-cols-12 gap-6 md:gap-8 items-start">
-          {/* ... (rest of the branding) ... */}
-          <div className="lg:col-span-12 border-b-[10px] border-white pb-6 mb-8 md:mb-10 relative">
+      {/* Cinematic Ambient Layers */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 transform-gpu">
+        <div className="absolute top-1/4 left-0 w-full h-px bg-white/5" />
+        <div className="absolute top-1/2 left-0 w-full h-px bg-white/5" />
+        <div className="absolute top-3/4 left-0 w-full h-px bg-white/5" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,rgba(255,255,255,0.05)_0%,transparent_50%)]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-transparent to-black/60" />
+      </div>
+
+      <div className="flex flex-col justify-center relative font-sans h-full z-10 transform-gpu">
+        {/* Monolithic Heading Composition */}
+        <div className="mb-16 md:mb-24 grid grid-cols-1 md:grid-cols-12 gap-8 items-start transform-gpu">
+          <div className="md:col-span-9 border-l border-white/10 pl-6 md:pl-10 transform-gpu">
             <motion.div
               variants={BOLD_HEADING}
               initial="hidden"
               whileInView="visible"
+              className="flex flex-col transform-gpu"
             >
-              <h2 className="text-5xl md:text-[clamp(4rem,9vw,8.5rem)] font-black uppercase text-white leading-[0.8] tracking-tighter">
-                INVEST<span className="text-white/20">_DM26</span>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-px bg-white/20" />
+                <span className="text-[10px] font-black uppercase tracking-[0.6em] text-white/40">
+                  INSTITUTIONAL_CORE // ASSET_STORY
+                </span>
+              </div>
+              <h2 className="text-7xl md:text-[clamp(5rem,12vw,11rem)] font-black uppercase leading-[0.75] tracking-[-0.05em] text-white transform-gpu">
+                Capital <br />
+                <span className="text-transparent" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.15)' }}>Intelligence</span>
               </h2>
             </motion.div>
-            <div className="absolute top-0 right-0 text-[8px] md:text-[10px] font-black uppercase tracking-[0.35em] md:tracking-[0.5em] text-white/40">
-              STRATEGIC_OPPORTUNITY // CORE_PORTFOLIO
+          </div>
+          <div className="md:col-span-3 pt-6 transform-gpu">
+            <div className="text-[9px] font-black uppercase tracking-[0.4em] text-white/20 mb-4 block">REFERENCE: ASSET_26</div>
+            <div className="flex flex-col gap-1">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-white/60">Portfolio Integrity</span>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-white/30 truncate">Downtown Dubai // UAE</span>
             </div>
           </div>
+        </div>
 
-          {/* Left: Intelligence */}
-          <div className="lg:col-span-7 flex flex-col lg:pr-8">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-20 items-start transform-gpu">
+          {/* Left Side: Strategic Metrics */}
+          <div className="lg:col-span-7 flex flex-col pt-4 transform-gpu">
             <motion.section 
               variants={FADE_IN}
               initial="hidden"
               whileInView="visible"
-              transition={{ delay: 0.4 }}
-              className="mb-8 md:mb-10"
+              transition={{ delay: 0.3 }}
+              className="mb-12 border-l border-white/10 pl-6 md:pl-10 transform-gpu"
             >
-              <h4 className="text-xs font-black uppercase tracking-[0.4em] mb-6 text-white/40">EXECUTIVE_BRIEFING</h4>
-              <p className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white leading-[1.1] max-w-2xl border-l-[10px] border-white pl-6 md:pl-8">
-                Securing 12M+ square feet of the world's most premium retail real estate in Downtown Dubai.
+              <h4 className="text-[10px] font-black uppercase tracking-[0.5em] mb-6 text-white/30">EXECUTIVE_SYNOPSIS</h4>
+              <p className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-white leading-[1.05] max-w-xl">
+                Securing the most dominant retail ecosystem on Earth. A multi-billion dollar confluence of luxury, culture, and scale.
               </p>
             </motion.section>
 
-            <div className="grid grid-cols-2 gap-6 md:gap-8 border-t-8 border-white pt-8 relative">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 transform-gpu">
               <motion.div
                 variants={SLIDE_UP}
                 initial="hidden"
                 whileInView="visible"
-                transition={{ delay: 0.6 }}
+                transition={{ delay: 0.4 }}
+                className="group transform-gpu"
               >
-                <h4 className="text-xs font-black uppercase tracking-[0.4em] mb-4 text-white/40">ANNUAL_REACH</h4>
-                <p className="text-5xl md:text-6xl font-black leading-none tracking-tighter text-white">100M+</p>
-                <p className="text-[10px] font-black uppercase mt-4 tracking-widest text-white/30">Verified Footfall // Global Audience</p>
+                <DeckCard className="p-8 bg-black/40 backdrop-blur-xl border-white/5 hover:border-white/20 transition-all duration-700 min-h-[220px] flex flex-col justify-between overflow-hidden shadow-2xl transform-gpu">
+                  {/* Metric Detail Overlay */}
+                  <div className="absolute top-0 left-0 w-full h-1 bg-white/10 -translate-y-full group-hover:translate-y-[210px] transition-all duration-[3000ms] ease-in-out opacity-0 group-hover:opacity-40" />
+                  
+                  <div className="relative z-10 flex flex-col gap-1">
+                    <span className="text-[9px] font-black uppercase tracking-[0.6em] text-white/20">KPI_STREAM_01</span>
+                    <h4 className="text-[11px] font-black uppercase tracking-[0.3em] text-white/50 group-hover:text-white transition-colors">ANNUAL_REACH</h4>
+                  </div>
+                  
+                  <div className="relative z-10 transform-gpu">
+                    <div className="text-6xl md:text-7xl font-black leading-none tracking-tighter text-white">100M+</div>
+                    <p className="text-[10px] font-bold uppercase mt-4 tracking-[0.2em] text-white/30">Verified Global Footfall</p>
+                  </div>
+
+                  {/* Corner Accent */}
+                  <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-30 transition-opacity">
+                    <Globe size={16} />
+                  </div>
+                </DeckCard>
               </motion.div>
+              
               <motion.div
                 variants={SLIDE_UP}
                 initial="hidden"
                 whileInView="visible"
                 transition={{ delay: 0.75 }}
+                className="group"
               >
-                <h4 className="text-xs font-black uppercase tracking-[0.4em] mb-4 text-white/40">MARKET_RETENTION</h4>
-                <p className="text-5xl md:text-6xl font-black leading-none tracking-tighter text-white">94%</p>
-                <p className="text-[10px] font-black uppercase mt-4 tracking-widest text-white/30">Historical Tenant Excellence</p>
+                <DeckCard className="p-8 bg-black/40 backdrop-blur-3xl border-white/5 hover:border-white/20 transition-all duration-700 min-h-[220px] flex flex-col justify-between overflow-hidden shadow-2xl">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-white/10 -translate-y-full group-hover:translate-y-[210px] transition-all duration-[3000ms] ease-in-out opacity-0 group-hover:opacity-40" />
+
+                  <div className="relative z-10 flex flex-col gap-1">
+                    <span className="text-[9px] font-black uppercase tracking-[0.6em] text-white/20">KPI_STREAM_02</span>
+                    <h4 className="text-[11px] font-black uppercase tracking-[0.3em] text-white/50 group-hover:text-white transition-colors">RETENTION_RATE</h4>
+                  </div>
+                  
+                  <div className="relative z-10">
+                    <div className="text-6xl md:text-7xl font-black leading-none tracking-tighter text-white">94%</div>
+                    <p className="text-[10px] font-bold uppercase mt-4 tracking-[0.2em] text-white/30">Strategic Market Stability</p>
+                  </div>
+
+                  {/* Corner Accent */}
+                  <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-30 transition-opacity">
+                    <ShieldCheck size={16} />
+                  </div>
+                </DeckCard>
               </motion.div>
             </div>
           </div>
 
-          {/* Right: Response Protocol */}
-          <div className="lg:col-span-5 border-l-[6px] border-white pl-6 lg:pl-10 flex flex-col justify-between">
-            <div>
-              <h4 className="text-xs font-black uppercase tracking-[0.4em] mb-8 text-white/40">RESPONSE_PROTOCOL</h4>
-              <div className="space-y-6">
-                {ctaItems.map((item) => (
-                  <MagneticButton key={item.action} className="w-full text-left" onClick={() => handleAction(item.id)}>
-                    <div className="border-b-2 border-white/60 pb-6 group cursor-none w-full">
-                      <span className="block text-[10px] font-black uppercase tracking-[0.3em] text-white/30 mb-2 opacity-50 group-hover:opacity-100 transition-opacity">
-                        {item.label}
+          {/* Right Side: Action Console */}
+          <div className="lg:col-span-5 flex flex-col h-full">
+            <div className="mb-12">
+              <h4 className="text-[10px] font-black uppercase tracking-[0.5em] mb-10 text-white/20">RESPONSE_PROTOCOLS</h4>
+              <div className="flex flex-col">
+                {ctaItems.map((item, idx) => (
+                  <MagneticButton key={item.id} className="w-full text-left" onClick={() => handleAction(item.id)}>
+                    <div className="border-b border-white/10 py-8 group cursor-none w-full relative overflow-hidden">
+                      <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-white group-hover:w-full transition-all duration-700" />
+                      <span className="block text-[10px] font-black uppercase tracking-[0.4em] text-white/20 mb-3 group-hover:text-white/60 transition-colors">
+                        {item.label} // 0{idx + 1}
                       </span>
-                      <div className="flex justify-between items-center text-2xl md:text-3xl font-black transition-all group-hover:translate-x-4 text-white">
+                      <div className="flex justify-between items-center text-3xl md:text-4xl font-black transition-all group-hover:translate-x-6 text-white leading-none tracking-tighter">
                         <span>{item.action}</span>
-                        <span className="text-white/20 group-hover:text-white group-hover:translate-x-4 transition-all">→</span>
+                        <ArrowRight size={24} className="opacity-0 group-hover:opacity-100 transition-all -translate-x-4 group-hover:translate-x-0" />
                       </div>
                     </div>
                   </MagneticButton>
@@ -110,33 +169,44 @@ export const DataSection: React.FC = () => {
               initial="hidden"
               whileInView="visible"
               transition={{ delay: 0.9 }}
-              className="mt-8 md:mt-10"
+              className="mt-auto group"
             >
-              <DeckCard className="bg-white text-black p-6 md:p-8 border-none">
-              <div className="absolute top-0 right-0 text-[10px] font-black p-4 opacity-20">REF: CTA_99</div>
-              <h4 className="text-xs font-black uppercase tracking-[0.4em] mb-6 border-b border-black/20 pb-3">IMMEDIATE_ACTIONS</h4>
-              <ul className="space-y-4 font-black text-sm uppercase tracking-widest">
-                <li className="hover:translate-x-4 transition-transform cursor-pointer flex items-center gap-4 group">
-                  <div className="h-2 w-2 bg-black group-hover:scale-150 transition-transform" />
-                  <span>Download Infrastructure Specs</span>
-                </li>
-                <li className="hover:translate-x-4 transition-transform cursor-pointer flex items-center gap-4 group">
-                  <div className="h-2 w-2 bg-black group-hover:scale-150 transition-transform" />
-                  <span>View Traffic Heatmaps</span>
-                </li>
-                <li className="hover:translate-x-4 transition-transform cursor-pointer flex items-center gap-4 group">
-                  <div className="h-2 w-2 bg-black group-hover:scale-150 transition-transform" />
-                  <span>Schedule Site Protocol</span>
-                </li>
-              </ul>
+              <DeckCard className="bg-black/60 backdrop-blur-3xl text-white p-8 md:p-10 border border-white/10 group-hover:border-white/30 transition-all duration-700 shadow-3xl">
+                <div className="absolute top-6 right-6 text-[9px] font-black tracking-[0.3em] opacity-20 select-none">CODE: PORTAL_99</div>
+                <h4 className="text-[10px] font-black uppercase tracking-[0.6em] mb-10 text-white/40 pb-4 border-b border-white/5">PRIVATE_TERMINAL</h4>
+                
+                <div className="space-y-8">
+                  {[
+                    'Download Infrastructure Specs',
+                    'View Traffic Heatmaps',
+                    'Schedule Site Protocol'
+                  ].map((text, i) => (
+                    <motion.div 
+                      key={text}
+                      whileHover={{ x: 12 }}
+                      className="flex items-center gap-6 cursor-pointer group/item"
+                    >
+                      <div className="flex flex-col items-center gap-1 group-hover/item:text-white text-white/10 transition-colors">
+                        <div className="h-1.5 w-1.5 rounded-full bg-current" />
+                        <div className="h-6 w-px bg-current opacity-50" />
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-[8px] font-black tracking-[0.5em] text-white/20 mb-1">0{i + 1}_EXEC</span>
+                        <span className="text-xs font-black uppercase tracking-[0.25em] text-white/60 group-hover/item:text-white transition-colors">{text}</span>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+                
+                <div className="mt-12 pt-8 border-t border-white/5 flex items-center justify-between">
+                  <div className="text-[8px] font-black uppercase tracking-widest text-white/20">
+                    Status: Encrypted_Session
+                  </div>
+                  <Zap size={12} className="text-white/10 animate-pulse" />
+                </div>
               </DeckCard>
             </motion.div>
           </div>
-        </div>
-        
-        {/* Footer Meta Accent */}
-        <div className="mt-10 lg:mt-0 lg:absolute lg:bottom-4 lg:right-0 text-[8px] font-black uppercase tracking-[0.5em] text-white/30">
-          PRODUCED_BY // STRATEGIC_DM_MEDIA_LABS
         </div>
       </div>
 
