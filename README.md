@@ -30,7 +30,7 @@ The experience is designed to feel more like a premium digital film or executive
 
 ## GitHub Repository
 
-[Add Your GitHub Repository Link Here]
+[https://github.com/Pratham0620/dubai-mall-sales-deck]
 
 ---
 
