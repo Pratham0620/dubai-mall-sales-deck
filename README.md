@@ -1,20 +1,179 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Dubai Mall Luxury Sales Deck
 
-# Run and deploy your AI Studio app
+A cinematic browser-based luxury sales presentation experience designed for high-end investor storytelling, premium retail positioning, and immersive destination showcasing.
 
-This contains everything you need to run your app locally.
+This project was created as a luxury digital presentation platform inspired by premium brand experiences from Apple, Tesla, luxury real estate presentations, and global fashion campaigns.
 
-View your app in AI Studio: https://ai.studio/apps/c76cf29a-f7c5-4ac0-b3fe-d1fa3de8c447
+---
 
-## Run Locally
+## Overview
 
-**Prerequisites:**  Node.js
+The project transforms a traditional investor presentation into an immersive cinematic web experience focused on:
 
+- Luxury storytelling
+- Editorial-style layouts
+- Premium motion design
+- Interactive section-based navigation
+- High-end visual hierarchy
+- Smooth cinematic transitions
+- Investor-focused presentation flow
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+The experience is designed to feel more like a premium digital film or executive briefing than a traditional website.
+
+---
+
+## Live Demo
+
+[Add Your Vercel Deployment Link Here]
+
+---
+
+## GitHub Repository
+
+[Add Your GitHub Repository Link Here]
+
+---
+
+## Tech Stack
+
+### Frontend
+- React
+- TypeScript
+- Vite
+
+### Styling & Animation
+- Tailwind CSS
+- Framer Motion
+
+### Development Tools
+- Cursor AI
+- Google AI Studio
+- ChatGPT
+
+---
+
+## Key Features
+
+- Cinematic luxury UI design
+- Full-screen storytelling sections
+- Smooth animated transitions
+- Premium editorial typography
+- Investor-focused presentation flow
+- Responsive design system
+- Motion-driven interactions
+- Luxury black-on-black visual aesthetic
+- Architectural grid layouts
+- Performance-optimized animations
+
+---
+
+## Design Philosophy
+
+The visual direction was inspired by:
+
+- Apple keynote presentations
+- Luxury retail campaigns
+- Editorial fashion layouts
+- Premium real estate showcases
+- Modern cinematic web storytelling
+
+The goal was to create a digital experience that communicates scale, prestige, exclusivity, and global luxury positioning.
+
+Every section was designed to feel immersive, intentional, and presentation-driven rather than template-based.
+
+---
+
+## AI-Assisted Workflow
+
+AI tools were used throughout the project to accelerate:
+- design ideation
+- UX exploration
+- animation refinement
+- layout experimentation
+- premium visual direction
+- copy structuring
+- performance optimization
+
+### AI Tools Used
+- Google AI Studio
+- Cursor AI
+- ChatGPT
+
+All final implementation, refinement, integration, debugging, and creative direction decisions were manually reviewed and customized.
+
+---
+
+## Performance Optimization
+
+The project includes optimizations for:
+- smooth scrolling
+- reduced animation lag
+- GPU-accelerated motion
+- responsive rendering
+- optimized image handling
+- lightweight transitions
+- efficient section navigation
+
+---
+
+## Folder Structure
+
+```bash
+src/
+ ├── components/
+ ├── sections/
+ ├── core/
+ │    ├── animations/
+ │    ├── layout/
+ │    └── utils/
+ ├── assets/
+ ├── content/
+ ├── types/
+ └── styles/
+
+Installation & Setup
+Clone Repository
+git clone https://github.com/your-username/dubai-mall-sales-deck.git
+Navigate into Project
+cd dubai-mall-sales-deck
+Install Dependencies
+npm install
+Start Development Server
+npm run dev
+Production Build
+npm run build
+Preview Production Build
+npm run preview
+Future Improvements
+
+Given additional time, future enhancements could include:
+
+advanced GSAP timelines
+WebGL cinematic effects
+interactive 3D environments
+AI-driven personalization
+immersive audio design
+real-time analytics dashboards
+advanced scroll choreography
+dynamic luxury brand showcases
+Challenges Faced
+
+Some key technical challenges included:
+
+scroll stability across devices
+cinematic animation performance
+maintaining smooth FPS
+balancing motion with responsiveness
+premium typography scaling
+large-screen layout consistency
+performance optimization for layered visuals
+Credits
+
+Designed and developed by:
+Pratham Yadav
+
+Built using modern frontend technologies and AI-assisted creative workflows.
+
+License
+
+This project was created for evaluation and presentation purposes.
