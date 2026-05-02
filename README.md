@@ -23,8 +23,8 @@ The experience is designed to feel more like a premium digital film or executive
 ---
 
 ## Live Demo
+[https://dubai-mall-sales-deck-q521lbr2u.vercel.app]
 
-[https://dubai-mall-sales-deck-llbdx27gm.vercel.app]
 
 ---
 
