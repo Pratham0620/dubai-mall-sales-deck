@@ -16,8 +16,30 @@ import { DataSection } from './sections/DataSection';
 
 import { IntelligenceConsole } from './components/IntelligenceConsole';
 import { FILMIC_EASE, LUXURY_EASE, MOTION_TIMING } from './core/animations/presets';
+import { SECTION_MEDIA } from './content/section-media';
 
 const SECTION_ORDER = Object.values(Section);
+
+// Intelligent preloader to cache background assets for smooth transitions
+const SectionPreloader = ({ currentSection }: { currentSection: Section }) => {
+  useEffect(() => {
+    const currentIndex = SECTION_ORDER.indexOf(currentSection);
+    const neighbors = [currentIndex - 1, currentIndex + 1, currentIndex + 2]
+      .filter(idx => idx >= 0 && idx < SECTION_ORDER.length);
+
+    neighbors.forEach(idx => {
+      const sectionKey = SECTION_ORDER[idx] as keyof typeof SECTION_MEDIA;
+      const media = (SECTION_MEDIA as any)[sectionKey];
+      if (media?.background) {
+        const img = new Image();
+        img.src = media.background;
+      }
+    });
+  }, [currentSection]);
+
+  return null;
+};
+
 const SECTION_COMPONENTS: Record<Exclude<Section, Section.HERO>, React.ComponentType> = {
   [Section.OVERVIEW]: OverviewSection,
   [Section.RETAIL]: RetailSection,
@@ -188,6 +210,7 @@ export default function App() {
 
   return (
     <div className="relative w-full min-h-screen min-h-[100dvh] bg-black overflow-hidden selection:bg-[--color-brand-gold] selection:text-black">
+      <SectionPreloader currentSection={currentSection} />
       <Navigation 
         currentSection={currentSection} 
         onSectionChange={handleSectionChange} 

@@ -59,7 +59,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNext }) => {
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
       />
 
       {/* Layered cinematic atmosphere */}
